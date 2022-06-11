@@ -74,7 +74,7 @@ function generatePassword() {
       typeChoice.indexOf(4) === -1
     );
 
-  for (i = 0; i < typeChoice.length; i++) {
+  for (let i = 0; i < typeChoice.length; i++) {
     let choice = typeChoice[i];
     if ("1234".indexOf(choice) > -1) {
       index = typeChoice[i] - 1;
@@ -84,7 +84,7 @@ function generatePassword() {
 
   window.alert(`Eligible Password Characters: ${chars}`);
 
-  for (i = 0; i < pwLen; i++) {
+  for (let i = 0; i < pwLen; i++) {
     let charInd = Math.floor(Math.random() * chars.length);
     password += chars[charInd];
   }
