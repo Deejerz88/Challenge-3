@@ -3,7 +3,7 @@ A password generator that creates a random random password based on criteria cho
 Options:
 
  
- * Number of Characters Between 8 & 12
+ * Number of Characters Between 8 & 128
  * Special Characters to Include
     1. lowercase
     2. UPPERCASE
