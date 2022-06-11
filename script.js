@@ -26,8 +26,8 @@ function generatePassword() {
   if (pwLen === null || pwLen === undefined) {
     return "Your Secure Password";
   }
-  pwLen = pwLen === "" ? 0 : pwLen;
-  if (pwLen < 8 || pwLen > 128)
+  pwLen = isNaN(pwLen) || pwLen === "" ? 0 : pwLen;
+  if (pwLen < 8 || pwLen > 128 || isNaN(pwLen))
     do {
       pwLen = prompt(
         `${pwLen} character(s) entered. Please specify a length between 8 and 128 characters`
@@ -35,51 +35,43 @@ function generatePassword() {
       if (pwLen === null || pwLen === undefined) {
         return "Your Secure Password";
       }
-      pwLen = pwLen === "" ? 0 : pwLen;
+      pwLen = isNaN(pwLen) || pwLen === "" ? 0 : pwLen;
     } while (pwLen < 8 || pwLen > 128);
-
-  if (isNaN(pwLen)) return pwLen;
 
   window.alert(`${pwLen} characters chosen`);
 
   let typeChoice = window.prompt(
-    `Please specify the type of characters you would like to use.\n  1. lowercase\n  2. UPPERCASE\n  3. Special Characters\n  4. Numbers\nYou may enter multiple numbers seperated by a comma (ex:1,3,4)`
+    `Please specify the type of characters you would like to use.\n  1. lowercase\n  2. UPPERCASE\n  3. Special Characters\n  4. Numbers\nYou may enter multiple numbers (ex:134)`
   );
 
   if (typeChoice === null || typeChoice === undefined)
     return "Your Secure Password";
 
   typeChoice = typeChoice.replace(" ", "");
-  typeArr =
-    typeChoice.replace(",", "").length > 1
-      ? typeChoice.split(",")
-      : [typeChoice.toString()];
+
   if (
-    typeArr.indexOf("1") === -1 &&
-    typeArr.indexOf("2") === -1 &&
-    typeArr.indexOf("3") === -1 &&
-    typeArr.indexOf("4") === -1
+    typeChoice.indexOf(1) === -1 &&
+    typeChoice.indexOf(2) === -1 &&
+    typeChoice.indexOf(3) === -1 &&
+    typeChoice.indexOf(4) === -1
   )
     do {
       typeChoice = window.prompt(
-        `Incorrect input. Please specify the type of characters you would like to use.\n  1. lowercase\n  2. UPPERCASE\n  3. Special Characters\n  4. Numbers\nYou may enter multiple numbers seperated by a comma (ex:1,3,4)`
+        `Incorrect input. Please specify the type of characters you would like to use.\n  1. lowercase\n  2. UPPERCASE\n  3. Special Characters\n  4. Numbers\nYou may enter multiple numbers (ex:134)`
       );
       if (typeChoice === null || typeChoice === undefined)
         return "Your Secure Password";
       typeChoice = typeChoice.replace(" ", "");
-      typeArr =
-        typeChoice.replace(",", "").length > 1
-          ? typeChoice.split(",")
-          : [typeChoice.toString()];
+
     } while (
-      typeArr.indexOf("1") === -1 &&
-      typeArr.indexOf("2") === -1 &&
-      typeArr.indexOf("3") === -1 &&
-      typeArr.indexOf("4") === -1
+      typeChoice.indexOf(1) === -1 &&
+      typeChoice.indexOf(2) === -1 &&
+      typeChoice.indexOf(3) === -1 &&
+      typeChoice.indexOf(4) === -1
     );
 
-  for (i = 0; i < typeArr.length; i++) {
-    index = typeArr[i] - 1;
+  for (i = 0; i < typeChoice.length; i++) {
+    index = typeChoice[i] - 1;
     chars += charArr[index];
   }
 
