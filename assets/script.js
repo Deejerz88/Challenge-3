@@ -70,8 +70,11 @@ function generatePassword() {
     );
 
   for (i = 0; i < typeChoice.length; i++) {
-    index = typeChoice[i] - 1;
-    chars += charArr[index];
+    let choice = typeChoice[i];
+    if ("1234".indexOf(choice) > -1) {
+      index = typeChoice[i] - 1;
+      chars += charArr[index];
+    }
   }
 
   window.alert(`Eligible Password Characters: ${chars}`);
