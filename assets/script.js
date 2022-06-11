@@ -7,6 +7,11 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
+  passwordText.addEventListener("click", () => {
+    passwordText.select();
+    navigator.clipboard.writeText(passwordText.value);
+    alert("Copied password to clipboard");
+  });
 }
 
 let charArr = [
