@@ -62,7 +62,6 @@ function generatePassword() {
       if (typeChoice === null || typeChoice === undefined)
         return "Your Secure Password";
       typeChoice = typeChoice.replace(" ", "");
-
     } while (
       typeChoice.indexOf(1) === -1 &&
       typeChoice.indexOf(2) === -1 &&
@@ -71,11 +70,8 @@ function generatePassword() {
     );
 
   for (i = 0; i < typeChoice.length; i++) {
-    let type = typeChoice[i]
-    if ([1, 2, 3, 4].indexOf(type) > -1) {
-      index = type - 1;
-      chars += charArr[index];
-    }
+    index = typeChoice[i] - 1;
+    chars += charArr[index];
   }
 
   window.alert(`Eligible Password Characters: ${chars}`);
