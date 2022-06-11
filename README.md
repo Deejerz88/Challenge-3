@@ -15,4 +15,4 @@ Clicking the textbox after the password is generated will copy the password to y
 
 https://deejerz88.github.io/Challenge-3/
 
-<img src="./images/passwordGen.png">
+<img src="./assets/images/passwordGen.png">
