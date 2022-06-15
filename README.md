@@ -13,6 +13,6 @@ Invalid inputs will inform the user and continue to ask the user for valid input
 
 Clicking the textbox after the password is generated will copy the password to your clipboard.
 
-https://deejerz88.github.io/Challenge-3/
+https://deejerz88.github.io/Deejs-Super-Awesome-Password-Generator/
 
 <img src="./assets/images/passwordGen.png">
